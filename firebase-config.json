@@ -1,0 +1,15 @@
+ 
+{
+  "type": "service_account",
+  "project_id": "tc-store-7c79f",
+  "private_key_id": "eadb5d6386ce4a1b7689c2a974b5cc28daabfb13",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC3V7M9MsplZYQH\nq8eO89+nEa0NZ2uw9V9fAcG+0zxzO4dy2OedptlxhGmh2/se0K8KUqUT1Bgt0HR2\nHTX1dpg6lXjeVyfyYiCKRAK6kgLN5s8/hHjxlzFgs3FlgsZYLWr5dAV8p2PNHBYY\nL8hJfUxx70V4X4zUfBzROp1V7TIkaAvAXWugWDnENNif4w+W6vCVW+QifAUUf/qa\nqAjd3jQjxaw0aMcYUYrr7vI7GPvgqVTcDrYbsTI8Iq9Zu7lpJhqQ0sJT+T3X6TWd\nyGRvnLKgv31btdS5VjoYldkKF9c8+3b2GSGuFdLfzvXlSc6eS1uq09B6S7jWUQSn\nAFO28aOHAgMBAAECggEAGYSN0GM8008FSNIKVOWxh73IkbiGvxrvurfyYN5iqAEt\nkXkKB6G82vVchGgrM/dEnZGyIyfec6XzR6s6It9uQZ0jNQL5bt1kfQoJPTFsTX8l\n8ke8U5fBCh3/lurUM1qi7HRO/TIJDHevxY8E9+GGHcd5Kk9WOQ7LLf3T/y0j0Pgj\n8qPf9TGoaWg/5icu+nND4GdZBh/QFXH2Oda27EZ5sS91zIZNcEpjrH40jjZv3JoO\nsXqw693sKhT39K9zss0Jjby5jWWYS94sBE/AnARqaX+mdNXgXyOVqbBo55S00moD\ntv3G064hDQz03QJ/B8uwIBaBvpaRtZOGsxNpWUU81QKBgQDeamOwyAG4fCwiSAtI\naCFqlHg38XJ7SgA8jom5fMxfs7YATrklFZtmDZPfhnle08GcjhJvv3dyMPkDMm18\nNdMs72GjxARJ6FSOC8YGGdg2H/OQpc/cyL+7luG+jri+LbDuSLxBIegnwhpJ1Hp9\n+ZkcPcEPbodJwgdyLX/IohRXvQKBgQDTBut4RYmqYa5x4UN52Cfw270AFI4n/USw\nCMCQUrsi4GAUae2aRqKOJVKqg7SXJDrbGtpuOcsklp3nqYhLwmjZ/bavj0PeKHTY\ncm2NlwFVnuUoJ18/fhTkmfprSG3rUtJMI75amxxKEwbO87zji1jRrpauUtWkzoKC\naxLEWBtqkwKBgC7L2a/PVTVYwvxvhhg0+JrxJB45Keow1r3nC6lATcvxBuEnryLT\nWf/t6WgFZjICgeELr2tdsKcREMOQb6LLvGPe9f879d8LCAdfCMot0+UHcfrEOGju\nwBCbHWI3qz0wZeKs4RcfKDZ9S4SvNRqeUo2znJQ/oC1vqptmYVV4bKlNAoGBAKbd\ne+iYo+j0YKpwA5kfUUXlm6eqmVYJsPy5jvsQUCWd4puBv34UiIl5/coTZwN0hI2o\nyDwMuxNtfeMnbTzqt1pYgtKDqJjMyMg2g2ZIl6eKg42ixHBCVGcHUrruhOxliyDl\nyql+qXnxXZrbpOsQzuTO9xtVKNau7QgPfsF/If69AoGBAKRQHPkCZ1wVY9VLgkSh\nbQvCOiaWxRSdt02HYb6b+ROcyXc64n0QYyMqtb6uBeleVn6y1yFLiotopQBJ/PcP\nyZC1R8AiCdB/KiJNXAThcT1Jm1ETyReiHPmxlnPViMd5RFXg9rxrUGoYfPe7/37+\nrydB8dDtJAkosQomdLK6+H4d\n-----END PRIVATE KEY-----\n",
+  "client_email": "tc-store-nestjs-682@tc-store-7c79f.iam.gserviceaccount.com",
+  "client_id": "110434838469267713795",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/tc-store-nestjs-682%40tc-store-7c79f.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
+ 
