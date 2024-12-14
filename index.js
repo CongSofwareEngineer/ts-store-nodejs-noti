@@ -3,9 +3,12 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 app.use(cors());
-const serviceAccount = require('./firebase-config.json');
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
+ admin.initializeApp({
+  credential: admin.credential.cert({
+    clientEmail:process.env.CLIENT_EMAIL,
+    privateKey:process.env.PRIVIATE_KEY,
+    projectId:process.env.PROJECT_ID
+  }),
 });
 
 app.get('/ping', async (req, res) => {
