@@ -1,13 +1,16 @@
 const admin = require('firebase-admin');
 const express = require('express');
 const cors = require('cors');
+require('dotenv').config()
 const app = express();
-app.use(cors());
- admin.initializeApp({
+app.use(cors()); 
+
+
+admin.initializeApp({
   credential: admin.credential.cert({
-    clientEmail:process.env.CLIENT_EMAIL,
-    privateKey:process.env.PRIVIATE_KEY,
-    projectId:process.env.PROJECT_ID
+    clientEmail: process.env.CLIENT_EMAIL,
+    privateKey: process.env.PRIVIATE_KEY,
+    projectId: process.env.PROJECT_ID
   }),
 });
 
@@ -38,15 +41,15 @@ app.get('/push/test', async (req, res) => {
     ...bodyTest.message,
     token,
   }));
-   
+
 
   await admin
     .messaging()
     .sendEach(messageArr)
-    .then((result) => { 
+    .then((result) => {
       res.send({
         success: true,
-        data:JSON.stringify(result.responses)
+        data: JSON.stringify(result.responses)
       });
     })
     .catch((err) => {
