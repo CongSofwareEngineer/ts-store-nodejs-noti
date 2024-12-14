@@ -15,6 +15,8 @@ app.get('/ping', async (req, res) => {
 });
 
 app.get('/push/test', async (req, res) => {
+
+  const token = req.query?.token?.toString() || 'dJOftuSwfQpu5qQFWdn-DQ:APA91bF9l_S47fh5Dw-64aOkpU6EP-XhT-AUN3S1bllHmwpwzUDF0-dmwHw2Tnhq1qG0UEkFc6Q4QJ-IN5hm8GZn7XdnwrGiVZCqxSRxWQ_VDvP6oNvq86s'
   const bodyTest = {
     message: {
       notification: {
@@ -26,36 +28,22 @@ app.get('/push/test', async (req, res) => {
         name: 'test',
       },
     },
-    listToken: ['c_pSI8AgsrbgRWSlojMfPT:APA91bGfg9UOfNeKWYxfGZPivR3aK0EGeFR-tqtxOXjbwAP1ohK9w4H2xkZP9vdeoXLjfLGVm03oXe6Tw95yvfNm7kFGVYp-zP_BzDbnBsZujSAFrQX4q2o'],
+    listToken: [token],
   };
 
   const messageArr = bodyTest.listToken.map((token) => ({
     ...bodyTest.message,
     token,
   }));
-  console.log({ messageArr });
-
-  const message = {
-    notification: {
-      title: 'Hello World',
-      body: ' req.body',
-    },
-    token: 'c_pSI8AgsrbgRWSlojMfPT:APA91bGfg9UOfNeKWYxfGZPivR3aK0EGeFR-tqtxOXjbwAP1ohK9w4H2xkZP9vdeoXLjfLGVm03oXe6Tw95yvfNm7kFGVYp-zP_BzDbnBsZujSAFrQX4q2o',
-    data: {
-      id: '1',
-      name: 'test',
-    },
-  };
+   
 
   await admin
     .messaging()
     .sendEach(messageArr)
-    .then((result) => {
-      console.log('====================================');
-      console.log({ result });
-      console.log('====================================');
+    .then((result) => { 
       res.send({
         success: true,
+        data:JSON.stringify(result.responses)
       });
     })
     .catch((err) => {
@@ -65,34 +53,34 @@ app.get('/push/test', async (req, res) => {
       });
     });
 });
- 
+
 
 app.get('/noti/push', async (req, res) => {
- try {
-  const queryString = req.query?.query;
-  if (typeof queryString === 'string') {
-    const data = JSON.parse(queryString);
-    const listToken = data.listToken  ;
-    const messageObj = data.message ;
-    const messageArr = listToken.map((token) => ({
-      ...messageObj,
-      token,
-    })); 
-    await admin.messaging().sendEach(messageArr)
-  } else {
+  try {
+    const queryString = req.query?.query;
+    if (typeof queryString === 'string') {
+      const data = JSON.parse(queryString);
+      const listToken = data.listToken;
+      const messageObj = data.message;
+      const messageArr = listToken.map((token) => ({
+        ...messageObj,
+        token,
+      }));
+      await admin.messaging().sendEach(messageArr)
+    } else {
+      res.status(400).send({
+        error: true,
+      });
+    }
+
+    res.send({
+      success: true,
+    });
+  } catch (error) {
     res.status(400).send({
       error: true,
     });
   }
-
-  res.send({
-    success: true,
-  });
- } catch (error) {
-  res.status(400).send({
-    error: true,
-  });
- }
 });
 
 app.listen(process.env.PORT || 3005, () => {
