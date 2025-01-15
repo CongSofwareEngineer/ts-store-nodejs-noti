@@ -3,18 +3,41 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config()
 const app = express();
-app.use(cors()); 
+app.use(cors());
 
 
 admin.initializeApp({
   credential: admin.credential.cert({
     clientEmail: process.env.CLIENT_EMAIL,
     privateKey: process.env.PRIVIATE_KEY,
-    projectId: process.env.PROJECT_ID
+    projectId: process.env.PROJECT_ID,
   }),
+  databaseURL: 'https://tc-store-7c79f-default-rtdb.asia-southeast1.firebasedatabase.app/'
 });
 
+
 app.get('/ping', async (req, res) => {
+  res.send({
+    isWork: true,
+  });
+});
+const dbChatRealtime = admin.database();
+
+app.get('/new-messages/:id', async (req, res) => {
+  setTimeout(() => {
+    const id = req.params.id
+    var refDb = dbChatRealtime.ref(`Chat/${id}`);
+    refDb.on('value', (snapshot) => {
+      const data = snapshot.val();
+
+      if (data) {
+        let url = process.env.API_SERVER_MAIN || ''
+        url += '/user/send-noti'
+        fetch(url)
+      }
+    });
+  }, 500);
+  
   res.send({
     isWork: true,
   });
