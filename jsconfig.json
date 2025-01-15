@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "esnext", // Sử dụng ESNext syntax
+    "module": "commonjs", // Node.js sử dụng CommonJS module
+    "moduleResolution": "node", // Node.js module resolution
+    "allowSyntheticDefaultImports": true, // Cho phép import mặc định
+    "lib": ["esnext", "dom"], // Hỗ trợ các API mới nhất và DOM
+    "checkJs": true, // Kiểm tra lỗi trong JavaScript
+    "baseUrl": ".", // Đường dẫn gốc
+    "paths": {
+      "*": ["node_modules/*"] // Tìm các module trong node_modules
+    }
+  },
+  "include": [
+    "src/**/*" // Thêm đường dẫn vào các tệp JS hoặc TS của bạn (ví dụ src)
+  ]
+}

@@ -1,6 +1,8 @@
 const admin = require('firebase-admin');
 const express = require('express');
 const cors = require('cors');
+// const fetch = require('node-fetch').default;
+
 require('dotenv').config()
 const app = express();
 app.use(cors());
@@ -24,23 +26,37 @@ app.get('/ping', async (req, res) => {
 const dbChatRealtime = admin.database();
 
 app.get('/new-messages/:id', async (req, res) => {
-  setTimeout(() => {
-    const id = req.params.id
-    var refDb = dbChatRealtime.ref(`Chat/${id}`);
-    refDb.on('value', (snapshot) => {
-      const data = snapshot.val();
+  try {
+    setTimeout(async () => {
+      const id = req.params.id
+      var refDb = dbChatRealtime.ref(`Chat/${id}`);
+      refDb.on('value', async (snapshot) => {
+        const data = snapshot.val();
 
-      if (data) {
-        let url = process.env.API_SERVER_MAIN || ''
-        url += '/user/send-noti'
-        fetch(url)
+        if (data) {
+          let url = process.env.API_SERVER_MAIN || ''
+          url += '/user/send-noti'
+
+          let resServer = await fetch(url)
+          resServer = await resServer.json()
+
+          res.send({
+            isWork: true,
+            data: resServer
+          });
+        }
+      });
+    }, 500);
+  } catch (error) {
+    res.send({
+      isWork: false,
+      data: {
+        [process.env.API_SERVER_MAIN || '']: 'error'
       }
     });
-  }, 500);
-  
-  res.send({
-    isWork: true,
-  });
+  }
+
+
 });
 
 app.get('/push/test', async (req, res) => {
