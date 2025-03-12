@@ -1,0 +1,13 @@
+name: Scheduled API Call
+
+on:
+  schedule:
+    - cron: '0 7 * * *'  # Chạy lúc 07:00 UTC (có thể cần đổi múi giờ)
+  workflow_dispatch:  # Cho phép chạy thủ công
+
+jobs:
+  call-api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call API
+        run: curl -X GET "https://ts-store-nodejs-noti.vercel.app/ping-cron"

@@ -1,6 +1,7 @@
 const admin = require('firebase-admin');
 const express = require('express');
 const cors = require('cors');
+const getData = require('./api/cron');
 // const fetch = require('node-fetch').default;
 
 require('dotenv').config()
@@ -16,14 +17,30 @@ admin.initializeApp({
   }),
   databaseURL: 'https://tc-store-7c79f-default-rtdb.asia-southeast1.firebasedatabase.app/'
 });
-
+const dbChatRealtime = admin.database();
 
 app.get('/ping', async (req, res) => {
   res.send({
     isWork: true,
   });
 });
-const dbChatRealtime = admin.database();
+
+app.get('/ping-cron', async (req, res) => {
+ try {
+  const data=await getData()
+ 
+  res.send({
+    isWork: true,
+    data
+  });
+ } catch (error) {
+   res.send({
+    isWork: false,
+    error
+  });
+ }
+});
+
 
 app.get('/new-messages/:id', async (req, res) => {
   try {

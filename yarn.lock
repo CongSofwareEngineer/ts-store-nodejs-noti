@@ -270,6 +270,11 @@
   resolved "https://registry.yarnpkg.com/@types/long/-/long-4.0.2.tgz#b74129719fc8d11c01868010082d483b7545591a"
   integrity sha512-MqTGEo5bj5t157U6fA/BiDynNkn0YknVdh48CMPkTSpFTVmvao5UQmm7uEF6xBEo7qIMAlY/JSleYaE6VOdpaA==
 
+"@types/luxon@~3.4.0":
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/@types/luxon/-/luxon-3.4.2.tgz#e4fc7214a420173cea47739c33cdf10874694db7"
+  integrity sha512-TifLZlFudklWlMBfhubvgqTXRzLDI5pCbGa4P8a3wPyUQSW+1xQ5eDsreP9DWHX3tjq1ke96uYG/nwundroWcA==
+
 "@types/mime@^1":
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-1.3.5.tgz#1ef302e01cf7d2b5a0fa526790c9123bf1d06690"
@@ -559,6 +564,14 @@ cors@^2.8.5:
   dependencies:
     object-assign "^4"
     vary "^1"
+
+cron@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/cron/-/cron-4.1.0.tgz#1207e890c4c705b9b1ee3b799fb9d9ec17d54792"
+  integrity sha512-wmcuXr2qP0UZStYgwruG6jC2AYSO9n5VMm2t93hmcEXEjWY3S2bsXe3sfGUrTs/uQ1AvRCrZ0Pp9Q032L/V9tw==
+  dependencies:
+    "@types/luxon" "~3.4.0"
+    luxon "~3.5.0"
 
 data-uri-to-buffer@^4.0.0:
   version "4.0.1"
@@ -1212,6 +1225,11 @@ lru-memoizer@^2.2.0:
   dependencies:
     lodash.clonedeep "^4.5.0"
     lru-cache "6.0.0"
+
+luxon@~3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/luxon/-/luxon-3.5.0.tgz#6b6f65c5cd1d61d1fd19dbf07ee87a50bf4b8e20"
+  integrity sha512-rh+Zjr6DNfUYR3bPwJEnuwDdqMbxZW7LOQfUN4B54+Cl+0o5zaU9RJ6bcidfDtC1cWCZXQ+nvX8bf6bAji37QQ==
 
 math-intrinsics@^1.0.0:
   version "1.0.0"
