@@ -1,7 +1,8 @@
 const admin = require('firebase-admin');
 const express = require('express');
 const cors = require('cors');
-const getData = require('./api/cron');
+const CronAPI = require('./api/cron');
+const { CronJob } = require('cron');
 // const fetch = require('node-fetch').default;
 
 require('dotenv').config()
@@ -27,7 +28,7 @@ app.get('/ping', async (req, res) => {
 
 app.get('/ping-cron', async (req, res) => {
  try {
-  const data=await getData()
+  const data=await CronAPI.getData()
  
   res.send({
     isWork: true,
@@ -144,6 +145,9 @@ app.get('/noti/push', async (req, res) => {
     });
   }
 });
+
+
+const job = new CronJob("0 0 7 * * *", CronAPI.callData, null, true, "Asia/Ho_Chi_Minh");
 
 app.listen(process.env.PORT || 3005, () => {
   // app.listen(3002, () => {
