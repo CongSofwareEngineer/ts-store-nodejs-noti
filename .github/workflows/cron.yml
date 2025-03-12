@@ -2,7 +2,7 @@ name: Scheduled API Call
 
 on:
   schedule:
-    - cron: '0 7 * * *'  # Chạy lúc 07:00 UTC (có thể cần đổi múi giờ)
+    - cron: '0 * * * *'  # Chạy mỗi giờ (0 phút của mỗi giờ)
   workflow_dispatch:  # Cho phép chạy thủ công
 
 jobs:
