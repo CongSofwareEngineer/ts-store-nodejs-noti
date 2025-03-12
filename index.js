@@ -28,6 +28,8 @@ app.get('/ping', async (req, res) => {
 
 app.get('/ping-cron', async (req, res) => {
  try {
+  console.log('ping-cron');
+  
   const data=await CronAPI.getData()
  
   res.send({
