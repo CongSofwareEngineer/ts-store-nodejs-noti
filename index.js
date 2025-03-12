@@ -27,21 +27,23 @@ app.get('/ping', async (req, res) => {
 });
 
 app.get('/ping-cron', async (req, res) => {
- try {
-  console.log('ping-cron');
-  
-  const data=await CronAPI.getData()
- 
-  res.send({
-    isWork: true,
-    data
-  });
- } catch (error) {
-   res.send({
-    isWork: false,
-    error
-  });
- }
+  try {
+
+    const data = await CronAPI.getData()
+    console.log('ping-cron', data);
+
+    res.send({
+      isWork: true,
+      data
+    });
+  } catch (error) {
+    console.log('ping-cron', error);
+
+    res.send({
+      isWork: false,
+      error
+    });
+  }
 });
 
 
