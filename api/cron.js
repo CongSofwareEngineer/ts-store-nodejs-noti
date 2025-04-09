@@ -1,6 +1,7 @@
  
 const getData = async () => {
-  const response = await fetch('https://linear-ag-diencong-356f02fc.koyeb.app/auth/ping');
+  const url=process.env.API_SERVER_MAIN_CUSTOM ||process.env.API_SERVER_MAIN
+  const response = await fetch(`${url}/hello`);
      
      const data =await response.json()
     return data
@@ -8,7 +9,9 @@ const getData = async () => {
 
 const callData = async () => {
   try {
-    const response = await fetch('https://linear-ag-diencong-356f02fc.koyeb.app/auth/ping');
+  const url=process.env.API_SERVER_MAIN_CUSTOM ||process.env.API_SERVER_MAIN
+
+    const response = await fetch(`${url}/hello`);
      
     const data =await response.json()
     console.log("API Response:", data);
