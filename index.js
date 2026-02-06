@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const CronAPI = require('./api/cron');
 const { CronJob } = require('cron');
+const secureRouter = require('./api/secure');
 // const fetch = require('node-fetch').default;
 
 require('dotenv').config()
@@ -152,6 +153,10 @@ app.get('/noti/push', async (req, res) => {
 
 
 const job = new CronJob("0 0 7 * * *", CronAPI.callData, null, true, "Asia/Ho_Chi_Minh");
+
+app.use('/api/secure', secureRouter);
+app.use('/api/healthy', healthyRouter);
+
 
 app.listen(process.env.PORT || 3005, () => {
   // app.listen(3002, () => {
